@@ -1,0 +1,112 @@
+/* Footer.css */
+footer {
+    background: linear-gradient(to bottom, #073246, #c9b37c);
+    padding: 40px;
+    color: white;
+    margin-top: auto;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+footer h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin: 5px 0;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    background: #c9b37c;
+    border-radius: 50%;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: background 0.3s, transform 0.3s;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    background: #a89465;
+    transform: scale(1.1);
+}
+
+.social-icons i {
+    pointer-events: none;
+}
+
+footer .footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid white;
+    padding-top: 10px;
+}
+
+.footer-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.newsletter-signup {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.newsletter-signup input[type="email"] {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.newsletter-signup button {
+    padding: 10px 20px;
+    background-color: #c9b37c;
+    color: #073246;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.newsletter-signup button:hover {
+    background-color: #a08659;
+}

@@ -1,0 +1,51 @@
+/* Banner.css */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding-top: 60px; /* Adjust this if the navbar overlaps the banner */
+    background: url('../assets/banner.jpg') no-repeat center center/cover; /* Ensure the image path is correct */
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text visibility */
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the content */
+}
+
+.banner-content h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.banner-content a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #c9b37c;
+    color: #073246;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.banner-content a:hover {
+    background-color: #a08659;
+}

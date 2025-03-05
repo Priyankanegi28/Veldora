@@ -1,0 +1,67 @@
+/* Navbar.css */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background-color: #073246;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-right: 10px;
+}
+
+.menu {
+    display: flex;
+    gap: 25px;
+    font-size: 14px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #c9b37c;
+}
+
+.booking {
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 1px solid #c9b37c;
+    color: #c9b37c;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.booking:hover {
+    background-color: #c9b37c;
+    color: #073246;
+}
+
+.right-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.lang, .search {
+    color: #c9b37c;
+    font-size: 14px;
+    cursor: pointer;
+}
