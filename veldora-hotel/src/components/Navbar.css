@@ -60,7 +60,22 @@ nav {
     gap: 15px;
 }
 
-.lang, .search {
+.login-button {
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 1px solid #c9b37c;
+    color: #c9b37c;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #c9b37c;
+    color: #073246;
+}
+
+.search {
     color: #c9b37c;
     font-size: 14px;
     cursor: pointer;

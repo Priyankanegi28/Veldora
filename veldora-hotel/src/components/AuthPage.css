@@ -1,0 +1,66 @@
+/* src/components/AuthPage.css */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #073246;
+    color: white;
+}
+
+.auth-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.auth-container h2 {
+    margin-bottom: 20px;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #c9b37c;
+    border: none;
+    border-radius: 5px;
+    color: #073246;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.auth-container button:hover {
+    background-color: #a08659;
+}
+
+.auth-container p {
+    margin-top: 10px;
+}
+
+.auth-container p span {
+    color: #c9b37c;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.guest-button {
+    background-color: transparent;
+    border: 1px solid #c9b37c;
+    color: #c9b37c;
+}
+
+.guest-button:hover {
+    background-color: #c9b37c;
+    color: #073246;
+}
