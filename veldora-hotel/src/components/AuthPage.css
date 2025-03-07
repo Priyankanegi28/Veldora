@@ -9,27 +9,36 @@
 }
 
 .auth-container {
+    display: flex;
+    width: auto;
+    max-width: 800px; /* Adjusted for better spacing */
     background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
     border-radius: 10px;
-    text-align: center;
-    width: 300px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.auth-container h2 {
+/* Left Side: Form Section */
+.auth-form {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.auth-form h2 {
     margin-bottom: 20px;
 }
 
-.auth-container input {
-    width: 100%;
+.auth-form input {
+    width: 80%;
     padding: 10px;
     margin: 10px 0;
     border: none;
     border-radius: 5px;
 }
 
-.auth-container button {
-    width: 100%;
+.auth-form button {
+    width: 85%;
     padding: 10px;
     background-color: #c9b37c;
     border: none;
@@ -40,15 +49,15 @@
     margin-top: 10px;
 }
 
-.auth-container button:hover {
+.auth-form button:hover {
     background-color: #a08659;
 }
 
-.auth-container p {
+.auth-form p {
     margin-top: 10px;
 }
 
-.auth-container p span {
+.auth-form p span {
     color: #c9b37c;
     cursor: pointer;
     text-decoration: underline;
@@ -63,4 +72,19 @@
 .guest-button:hover {
     background-color: #c9b37c;
     color: #073246;
+}
+
+/* Right Side: Image Section */
+.auth-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Adds space around the image */
+}
+
+.auth-image img {
+    max-width: 100%; /* Ensures image does not overflow */
+    height: auto; /* Keeps the original aspect ratio */
+    display: block;
 }

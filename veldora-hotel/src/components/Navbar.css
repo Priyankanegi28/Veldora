@@ -26,7 +26,7 @@ nav {
 .menu {
     display: flex;
     gap: 25px;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .menu a {
@@ -75,8 +75,64 @@ nav {
     color: #073246;
 }
 
-.search {
-    color: #c9b37c;
-    font-size: 14px;
+.sidebar {
+    position: absolute;
+    top: 70px; /* Position below profile icon */
+    right: 120px; /* Shift left by adjusting this value */
+    transform: translateX(10px); /* Move left */
+    width: 220px; /* Set width */
+    height: auto; /* Fit content instead of full height */
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none; /* Initially hidden */
+}
+
+/* Show when active */
+.sidebar.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+/* Close Button */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+/* Logout Button */
+.sidebar button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #c9b37c;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sidebar button:hover {
+    background-color: #c9b37c;
+}
+.right-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 60px; /* Shift elements left */
+}
+.profile-icon {
     cursor: pointer;
 }
+
+

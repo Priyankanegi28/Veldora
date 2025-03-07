@@ -87,6 +87,10 @@ footer .footer-bottom {
 .newsletter-signup {
     margin-top: 30px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adds space between input and button */
 }
 
 .newsletter-signup input[type="email"] {
@@ -109,4 +113,11 @@ footer .footer-bottom {
 
 .newsletter-signup button:hover {
     background-color: #a08659;
+}
+
+/* Add spacing between social media icons */
+.social-icons {
+    display: flex;
+    gap: 15px; /* Adds space between Facebook, Instagram, and Twitter icons */
+    justify-content: center;
 }
