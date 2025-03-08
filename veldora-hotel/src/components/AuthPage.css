@@ -1,4 +1,4 @@
-/* src/components/AuthPage.css */
+/* Auth Page */
 .auth-page {
     display: flex;
     justify-content: center;
@@ -6,10 +6,13 @@
     height: 100vh;
     background-color: #073246;
     color: white;
+    padding: 20px; /* Prevents overflow on small screens */
 }
 
+/* Auth Container */
 .auth-container {
     display: flex;
+    flex-direction: row;
     width: auto;
     max-width: 800px; /* Adjusted for better spacing */
     background: rgba(255, 255, 255, 0.1);
@@ -87,4 +90,65 @@
     max-width: 100%; /* Ensures image does not overflow */
     height: auto; /* Keeps the original aspect ratio */
     display: block;
+}
+
+/* 🌐 Responsive Design */
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .auth-form {
+        width: 100%;
+        padding: 30px;
+    }
+
+    /* Make image take up less space on smaller screens */
+    .auth-image {
+        flex: none;
+        width: 100%;
+        max-height: 200px; /* Limits height for better proportion */
+    }
+
+    .auth-image img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: contain; /* Ensures image fits without cropping */
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-page {
+        padding: 10px;
+    }
+
+    .auth-container {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .auth-form h2 {
+        font-size: 20px;
+    }
+
+    .auth-form input {
+        width: 100%;
+    }
+
+    .auth-form button {
+        width: 100%;
+    }
+
+    /* Ensure image is still visible but smaller */
+    .auth-image {
+        max-height: 150px;
+    }
+
+    .auth-image img {
+        max-height: 150px;
+    }
 }

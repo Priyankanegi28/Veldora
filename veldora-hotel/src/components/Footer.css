@@ -1,11 +1,12 @@
-/* Footer.css */
+/* Footer Container */
 footer {
     background: linear-gradient(to bottom, #073246, #c9b37c);
-    padding: 40px;
+    padding: 40px 20px;
     color: white;
     margin-top: auto;
 }
 
+/* Footer Main Content */
 footer .container {
     display: flex;
     justify-content: space-between;
@@ -15,11 +16,13 @@ footer .container {
     text-align: center;
 }
 
+/* Footer Headings */
 footer h3 {
     margin-bottom: 10px;
     font-size: 18px;
 }
 
+/* Footer Links */
 footer ul {
     list-style: none;
     padding: 0;
@@ -32,10 +35,20 @@ footer ul li {
 footer ul li a {
     color: white;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 footer ul li a:hover {
     text-decoration: underline;
+    color: #f1d28f;
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
 }
 
 .social-icons a {
@@ -62,6 +75,7 @@ footer ul li a:hover {
     pointer-events: none;
 }
 
+/* Footer Bottom */
 footer .footer-bottom {
     margin-top: 20px;
     text-align: center;
@@ -69,6 +83,7 @@ footer .footer-bottom {
     padding-top: 10px;
 }
 
+/* Footer Links */
 .footer-links {
     margin-top: 20px;
     text-align: center;
@@ -78,19 +93,22 @@ footer .footer-bottom {
     color: white;
     text-decoration: none;
     margin: 0 15px;
+    transition: color 0.3s;
 }
 
 .footer-links a:hover {
     text-decoration: underline;
+    color: #f1d28f;
 }
 
+/* Newsletter Signup */
 .newsletter-signup {
     margin-top: 30px;
-    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Adds space between input and button */
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .newsletter-signup input[type="email"] {
@@ -99,6 +117,7 @@ footer .footer-bottom {
     border: none;
     border-radius: 5px;
     width: 250px;
+    outline: none;
 }
 
 .newsletter-signup button {
@@ -109,15 +128,47 @@ footer .footer-bottom {
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 .newsletter-signup button:hover {
     background-color: #a08659;
 }
 
-/* Add spacing between social media icons */
-.social-icons {
-    display: flex;
-    gap: 15px; /* Adds space between Facebook, Instagram, and Twitter icons */
-    justify-content: center;
+/* 🌐 Responsive Design */
+@media (max-width: 768px) {
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .newsletter-signup {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .newsletter-signup input[type="email"] {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 30px 10px;
+    }
+
+    footer h3 {
+        font-size: 16px;
+    }
+
+    .footer-links a {
+        margin: 0 10px;
+    }
+
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
 }

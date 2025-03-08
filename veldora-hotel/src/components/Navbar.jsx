@@ -1,5 +1,5 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { User } from 'lucide-react'; // Import icons
+import { Menu, User } from 'lucide-react'; // Import icons
 import React, { useEffect, useRef, useState } from 'react';
 import logo from '../assets/logo.webp';
 import { auth } from '../firebaseConfig';
@@ -8,7 +8,11 @@ import './Navbar.css';
 const Navbar = () => {
     const [user, setUser] = useState(null);
     const [showSidebar, setShowSidebar] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
     const sidebarRef = useRef(null);
+    const menuRef = useRef(null);
+    const profileIconRef = useRef(null);
+    const menuIconRef = useRef(null); // Ref for hamburger icon
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -30,24 +34,37 @@ const Navbar = () => {
         setShowSidebar(false);
     };
 
-    // Close sidebar when clicking outside
+    // Close sidebar when clicking outside (but ignore clicks on profile icon)
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+            if (
+                sidebarRef.current &&
+                !sidebarRef.current.contains(event.target) &&
+                profileIconRef.current !== event.target // Ignore profile icon clicks
+            ) {
                 setShowSidebar(false);
             }
         };
 
-        if (showSidebar) {
-            document.addEventListener("mousedown", handleClickOutside);
-        } else {
-            document.removeEventListener("mousedown", handleClickOutside);
-        }
-
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [showSidebar]);
+
+    // Close menu when clicking outside (but ignore clicks on hamburger icon)
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                menuRef.current &&
+                !menuRef.current.contains(event.target) &&
+                menuIconRef.current !== event.target // Ignore hamburger icon clicks
+            ) {
+                setShowMenu(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, [showMenu]);
 
     return (
         <nav>
@@ -55,7 +72,18 @@ const Navbar = () => {
                 <img src={logo} alt="Logo" width="30" height="30" />
                 Veldora Hotel
             </div>
-            <div className="menu">
+
+            {/* Hamburger Button */}
+            <Menu 
+                ref={menuIconRef} // Reference for hamburger icon
+                className="hamburger-icon" 
+                size={28} 
+                color="white" 
+                onClick={() => setShowMenu((prev) => !prev)} // Toggle menu
+            />
+
+            {/* Menu */}
+            <div ref={menuRef} className={`menu ${showMenu ? 'show' : ''}`}>
                 <a href="#">Rooms</a>
                 <a href="#">Offers and Activities</a>
                 <a href="#">Conferences</a>
@@ -63,16 +91,18 @@ const Navbar = () => {
                 <a href="#">About Veldora</a>
                 <a href="#">Contact</a>
             </div>
+
             <div className="right-options">
                 <a href="#" className="booking">Booking</a>
 
                 {user ? (
                     <>
                         <User 
+                            ref={profileIconRef} // Reference for profile icon
                             className="profile-icon" 
                             size={24} 
                             color="white" 
-                            onClick={() => setShowSidebar(!showSidebar)}
+                            onClick={() => setShowSidebar((prev) => !prev)} // Toggle sidebar
                         />
                         {/* Sidebar for Profile Details */}
                         <div ref={sidebarRef} className={`sidebar ${showSidebar ? 'show' : ''}`}>
@@ -82,7 +112,7 @@ const Navbar = () => {
                         </div>
                     </>
                 ) : (
-                    <button className="login-button" onClick={() => window.location.reload()}>
+                    <button className="login-button">
                         Login
                     </button>
                 )}
