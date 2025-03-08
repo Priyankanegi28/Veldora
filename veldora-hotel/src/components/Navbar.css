@@ -169,7 +169,7 @@ nav {
     /* Show hamburger icon */
     .hamburger-icon {
         display: block;
-        margin-right: -90px; /* Pushing it to the right */
+        margin-right: -10px; /* Pushing it to the right */
     }
 
     /* Move login button and profile icon left */

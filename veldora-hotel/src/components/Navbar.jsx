@@ -112,7 +112,7 @@ const Navbar = () => {
                         </div>
                     </>
                 ) : (
-                    <button className="login-button">
+                    <button className="login-button" onClick={() => window.location.reload()}>
                         Login
                     </button>
                 )}
