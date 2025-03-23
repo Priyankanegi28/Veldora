@@ -1,7 +1,11 @@
 # 🏨 Veldora Hotel  
 
 Veldora Hotel is a modern hotel booking platform built with **React, Vite, and Firebase**. It allows users to **sign up, log in, or continue as a guest** to explore and book hotel rooms. The platform provides **exclusive deals, trending destinations, and easy booking** for users.  
+---
 
+![Veldora Preview](https://github.com/Priyankanegi28/Veldora/blob/main/veldora-hotel/public/login.png)
+
+![Veldora Preview](https://github.com/Priyankanegi28/Veldora/blob/main/veldora-hotel/public/main.png)
 ---
 
 ## 🚀 Features  
