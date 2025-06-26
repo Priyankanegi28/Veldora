@@ -1,121 +1,102 @@
-# 🏨 Veldora Hotel  
+# Serene Haven
 
-Veldora Hotel is a modern hotel booking platform built with **React, Vite, and Firebase**. It allows users to **sign up, log in, or continue as a guest** to explore and book hotel rooms. The platform provides **exclusive deals, trending destinations, and easy booking** for users.  
-
----
-
-## 🚀 Features  
-
-✅ **User Authentication**: Sign up, log in with email and password, or continue as a guest.  
-✅ **Firebase Integration**: Secure authentication and real-time user state management.  
-✅ **Responsive Navigation Bar**: Includes a hamburger menu and a user profile sidebar.  
-✅ **Exclusive Hotel Deals**: Display featured and trending hotel stays.  
-✅ **Booking Option**: Easy access to room booking options.  
-✅ **Modern UI**: Clean and attractive design with animations.  
+A luxury hotel and resort booking web application offering world-class accommodations, dining, experiences, and events. Built with React and Vite, Serene Haven provides a seamless, elegant, and modern user experience for guests seeking relaxation, adventure, or celebration.
 
 ---
 
-## 🛠️ Tech Stack  
+## 🌟 Features & Pages
 
-- **Frontend**: React (Vite)  
-- **Authentication**: Firebase Authentication  
-- **Hosting**: Firebase Hosting  
-- **Icons**: Lucide-React  
-- **Styling**: CSS  
+### Main Pages
+- **Home**: Hero section, quick links, featured rooms, amenities, testimonials, and deals.
+- **About**: Story, mission, and highlights of Serene Haven.
+- **Rooms & Suites**: Browse, filter, and view details of all room types (Deluxe, Executive, Presidential, Family, Penthouse, etc.).
+- **Dining**: Explore restaurants, bars, and signature dishes. Reserve a table.
+- **Experiences**: Discover unique activities (yoga, safari, beach dinner, scuba, cooking class, cultural tours, etc.).
+- **Book Experience**: Reserve curated experiences with a dedicated form.
+- **Events**: View and RSVP to upcoming events (Gala, Festival, Retreats, Wine Tasting, Cultural Nights, etc.).
+- **Reserve/Booking**: Book your stay with check-in/out, guests, and room selection.
+- **RSVP**: RSVP for special events.
+- **Contact**: Contact form, address, phone, email, and map.
+- **Authentication**: Login, Signup, and Guest access (with Firebase Auth).
 
----
-
-## 📂 Folder Structure  
-
-```
-VeldoraHotel/
-│── public/                     # Static assets  
-│── src/  
-│   ├── assets/                 # Images and icons  
-│   ├── components/             # Reusable components  
-│   │   ├── AuthPage.jsx        # Login and Signup page  
-│   │   ├── Navbar.jsx          # Navigation bar with authentication  
-│   │   ├── Banner.jsx          # Home page banner  
-│   │   ├── DealsSection.jsx    # Hotel deals section  
-│   │   ├── Footer.jsx          # Footer section  
-│   ├── firebaseConfig.js       # Firebase setup  
-│   ├── App.jsx                 # Main application file  
-│   ├── main.jsx                # Entry point  
-│   ├── App.css                 # Global styles  
-│── .gitignore  
-│── index.html  
-│── package.json  
-│── README.md  
-│── vite.config.js  
-```
+### Global Features
+- **Navbar**: Quick navigation to all main pages.
+- **Footer**: Quick links, social media, newsletter signup, and legal info.
+- **Testimonials**: Rotating guest reviews.
+- **Deals Section**: Special offers and featured stays.
+- **Responsive Design**: Fully mobile-friendly and accessible.
 
 ---
 
-## 🏗️ Installation  
+## 🛠️ Tech Stack
+- **Frontend**: React 19, Vite
+- **Routing**: React Router DOM
+- **UI/UX**: Framer Motion, Lucide React, React Icons, custom CSS
+- **Authentication**: Firebase Auth
+- **State Management**: React Hooks
+- **Deployment**: Vite, gh-pages
 
-### 1️⃣ Clone the Repository  
-```sh
-git clone https://github.com/your-username/veldora-hotel.git
-cd veldora-hotel
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm (v9+ recommended)
+
+### Installation
+```bash
+# Clone the repository
+$ git clone <your-repo-url>
+$ cd veldora-hotel
+
+# Install dependencies
+$ npm install
 ```
 
-### 2️⃣ Install Dependencies  
-```sh
-npm install
+### Running Locally
+```bash
+$ npm run dev
+```
+Visit [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Building for Production
+```bash
+$ npm run build
 ```
 
-### 3️⃣ Set Up Firebase  
-- Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).  
-- Enable **Authentication** → Sign in with **Email/Password**.  
-- Copy your Firebase config keys and paste them into `firebaseConfig.js`.  
-
-```js
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
-
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-```
-
-### 4️⃣ Run the Project  
-```sh
-npm run dev
+### Linting
+```bash
+$ npm run lint
 ```
 
 ---
 
-## 🖥️ Usage  
-
-1️⃣ **Login or Sign Up**  
-- Users will be greeted with an authentication page.  
-- They can **log in**, **sign up**, or **continue as a guest**.  
-
-2️⃣ **Home Page**  
-- After logging in, users will be redirected to the main page.  
-- The page features exclusive **hotel deals, trending destinations, and a booking option**.  
-
-3️⃣ **Navigation**  
-- A responsive navbar allows users to explore different sections.  
-- Authenticated users can view their **profile and log out** from the sidebar.  
-
----
-
-## 🔥 Screenshots  
-
-### 🔐 Login / Sign Up Page  
-<img src="https://github.com/Priyankanegi28/Veldora/blob/main/veldora-hotel/public/login.png" width="600" alt="Auth Page">  
-
-### 🏡 Main Home Page
-<img src="https://github.com/Priyankanegi28/Veldora/blob/main/veldora-hotel/public/main.png" width="600" alt="Home Page">  
+## 📁 Folder Structure (Key Parts)
+```
+veldora-hotel/
+  ├── public/                # Static assets
+  ├── src/
+  │   ├── assets/            # Images and media
+  │   ├── components/        # All React components & pages
+  │   │   ├── HomePage.jsx
+  │   │   ├── AboutPage.jsx
+  │   │   ├── RoomsPage.jsx
+  │   │   ├── DiningPage.jsx
+  │   │   ├── ExperiencesPage.jsx
+  │   │   ├── BookExperiencePage.jsx
+  │   │   ├── EventsPage.jsx
+  │   │   ├── ReservePage.jsx
+  │   │   ├── RsvpPage.jsx
+  │   │   ├── ContactPage.jsx
+  │   │   ├── AuthPage.jsx
+  │   │   ├── Navbar.jsx, Footer.jsx, Banner.jsx, DealsSection.jsx, etc.
+  │   ├── firebaseConfig.js  # Firebase setup
+  │   ├── App.jsx            # Main app entry
+  │   └── main.jsx           # ReactDOM render
+  ├── package.json           # Project metadata & scripts
+  └── README.md              # Project documentation
+```
 
 ---
 
@@ -151,3 +132,5 @@ firebase deploy
 This project is licensed under the **MIT License**.
 
 ---
+
+
