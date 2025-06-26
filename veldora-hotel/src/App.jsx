@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import AuthPage from "./components/AuthPage";
 import Banner from "./components/Banner";
 import DealsSection from "./components/DealsSection";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import HomePage from "./components/HomePage";
+import AboutPage from "./components/AboutPage";
+import ContactPage from "./components/ContactPage";
+import DiningPage from "./components/DiningPage";
+import EventsPage from "./components/EventsPage";
+import ExperiencesPage from "./components/ExperiencesPage";
+import ReservePage from "./components/ReservePage";
+import RoomsPage from "./components/RoomsPage";
+import BookExperiencePage from './components/BookExperiencePage';
+import RsvpPage from './components/RsvpPage';
 import { auth } from "./firebaseConfig";
+import { Calendar, ChevronLeft, ChevronRight, Utensils, Wifi, Droplets, Dumbbell, Flower, ConciergeBell, Star, StarOff, Gift, CalendarDays } from 'lucide-react';
 
 import beachfrontBliss from "./assets/beachfront-bliss.jpeg";
 import cityEscape from "./assets/city-escape.jpg";
@@ -46,20 +57,32 @@ function App() {
     return (
         <Router>
             <div className="App">
-                {!isAuthenticated && !isGuest ? (
-                    <AuthPage 
-                        onLogin={() => setIsAuthenticated(true)} 
-                        onGuest={() => setIsGuest(true)} 
-                    />
-                ) : (
-                    <>
-                        <Navbar />
-                        <Banner />
-                        <DealsSection title="Exclusive Deals" deals={deals1} />
-                        <DealsSection title="Trending Destinations" deals={deals2} />
-                        <Footer />
-                    </>
-                )}
+                <Routes>
+                    {/* Always show AuthPage at /login, redirect to / if already authenticated or guest */}
+                    <Route path="/login" element={
+                        (!isAuthenticated && !isGuest)
+                            ? <AuthPage onLogin={() => setIsAuthenticated(true)} onGuest={() => setIsGuest(true)} />
+                            : <Navigate to="/" />
+                    } />
+                    {/* All other routes require authentication or guest */}
+                    {(!isAuthenticated && !isGuest) ? (
+                        <Route path="*" element={<Navigate to="/login" />} />
+                    ) : (
+                        <>
+                            <Route path="/" element={<><Navbar /><HomePage /><Footer /></>} />
+                            <Route path="/rooms" element={<><Navbar /><RoomsPage /><Footer /></>} />
+                            <Route path="/about" element={<><Navbar /><AboutPage /><Footer /></>} />
+                            <Route path="/contact" element={<><Navbar /><ContactPage /><Footer /></>} />
+                            <Route path="/dining" element={<><Navbar /><DiningPage /><Footer /></>} />
+                            <Route path="/events" element={<><Navbar /><EventsPage /><Footer /></>} />
+                            <Route path="/experiences" element={<><Navbar /><ExperiencesPage /><Footer /></>} />
+                            <Route path="/reserve" element={<><Navbar /><ReservePage /><Footer /></>} />
+                            <Route path="/book-experience" element={<><Navbar /><BookExperiencePage /><Footer /></>} />
+                            <Route path="/rsvp" element={<><Navbar /><RsvpPage /><Footer /></>} />
+                            <Route path="*" element={<Navigate to="/" />} />
+                        </>
+                    )}
+                </Routes>
             </div>
         </Router>
     );

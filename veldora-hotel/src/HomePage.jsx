@@ -1,0 +1,1 @@
+const room2 = "https://www.grandvistahanoi.com/wp-content/uploads/2019/08/Phong-ngu-1.9-1100x733.jpg"; 

@@ -1,7 +1,7 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { Menu, User } from 'lucide-react'; // Import icons
+import { CalendarDays, Gift, Hotel, Info, Menu, Phone, User, Utensils } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
-import logo from '../assets/logo.webp';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../firebaseConfig';
 import './Navbar.css';
 
@@ -12,7 +12,8 @@ const Navbar = () => {
     const sidebarRef = useRef(null);
     const menuRef = useRef(null);
     const profileIconRef = useRef(null);
-    const menuIconRef = useRef(null); // Ref for hamburger icon
+    const menuIconRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -32,15 +33,15 @@ const Navbar = () => {
         await signOut(auth);
         setUser(null);
         setShowSidebar(false);
+        navigate('/');
     };
 
-    // Close sidebar when clicking outside (but ignore clicks on profile icon)
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (
                 sidebarRef.current &&
                 !sidebarRef.current.contains(event.target) &&
-                profileIconRef.current !== event.target // Ignore profile icon clicks
+                profileIconRef.current !== event.target
             ) {
                 setShowSidebar(false);
             }
@@ -50,13 +51,12 @@ const Navbar = () => {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [showSidebar]);
 
-    // Close menu when clicking outside (but ignore clicks on hamburger icon)
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (
                 menuRef.current &&
                 !menuRef.current.contains(event.target) &&
-                menuIconRef.current !== event.target // Ignore hamburger icon clicks
+                menuIconRef.current !== event.target
             ) {
                 setShowMenu(false);
             }
@@ -68,53 +68,65 @@ const Navbar = () => {
 
     return (
         <nav>
-            <div className="logo">
-                <img src={logo} alt="Logo" width="30" height="30" />
-                Veldora Hotel
+            <div className="logo-container">
+                <Link to="/" className="serene-logo">
+                    <div className="wave"></div>
+                    <div className="moon"></div>
+                </Link>
+                <div className="logo-text-container">
+                    <Link to="/" className="logo-text">Serene Haven</Link>
+                    <span className="logo-subtext">Luxury Retreat</span>
+                </div>
             </div>
 
-            {/* Hamburger Button */}
             <Menu 
-                ref={menuIconRef} // Reference for hamburger icon
+                ref={menuIconRef}
                 className="hamburger-icon" 
                 size={28} 
-                color="white" 
-                onClick={() => setShowMenu((prev) => !prev)} // Toggle menu
+                onClick={() => setShowMenu((prev) => !prev)}
+                aria-label="Toggle menu"
             />
 
-            {/* Menu */}
             <div ref={menuRef} className={`menu ${showMenu ? 'show' : ''}`}>
-                <a href="#">Rooms</a>
-                <a href="#">Offers and Activities</a>
-                <a href="#">Conferences</a>
-                <a href="#">Restaurant</a>
-                <a href="#">About Veldora</a>
-                <a href="#">Contact</a>
+                <Link to="/rooms"><Hotel size={18} className="menu-icon" />Rooms & Suites</Link>
+                <Link to="/experiences"><Gift size={18} className="menu-icon" />Experiences</Link>
+                <Link to="/events"><CalendarDays size={18} className="menu-icon" />Events</Link>
+                <Link to="/dining"><Utensils size={18} className="menu-icon" />Dining</Link>
+                <Link to="/about"><Info size={18} className="menu-icon" />About</Link>
+                <Link to="/contact"><Phone size={18} className="menu-icon" />Contact</Link>
             </div>
 
             <div className="right-options">
-                <a href="#" className="booking">Booking</a>
+                <Link to="/reserve" className="booking-btn">
+                    <span>Reserve Now</span>
+                </Link>
 
                 {user ? (
                     <>
-                        <User 
-                            ref={profileIconRef} // Reference for profile icon
-                            className="profile-icon" 
-                            size={24} 
-                            color="white" 
-                            onClick={() => setShowSidebar((prev) => !prev)} // Toggle sidebar
-                        />
-                        {/* Sidebar for Profile Details */}
+                        <div className="profile-container" ref={profileIconRef} onClick={() => setShowSidebar((prev) => !prev)}>
+                            <User className="profile-icon" size={24} />
+                            <span className="profile-name">{user.displayName || user.email.split("@")[0]}</span>
+                        </div>
+                        
                         <div ref={sidebarRef} className={`sidebar ${showSidebar ? 'show' : ''}`}>
-                            <p><strong>{user.displayName || user.email.split("@")[0]}</strong></p>
-                            <p>{user.email}</p>
-                            <button onClick={handleLogout}>Logout</button>
+                            <div className="sidebar-header">
+                                <div className="sidebar-avatar">
+                                    {user.displayName?.charAt(0) || user.email.charAt(0).toUpperCase()}
+                                </div>
+                                <div>
+                                    <p className="sidebar-username">{user.displayName || user.email.split("@")[0]}</p>
+                                    <p className="sidebar-email">{user.email}</p>
+                                </div>
+                            </div>
+                            <button onClick={handleLogout} className="logout-btn">
+                                Sign Out
+                            </button>
                         </div>
                     </>
                 ) : (
-                    <button className="login-button" onClick={() => window.location.reload()}>
-                        Login
-                    </button>
+                    <Link to="/login" className="login-btn">
+                        Sign In
+                    </Link>
                 )}
             </div>
         </nav>

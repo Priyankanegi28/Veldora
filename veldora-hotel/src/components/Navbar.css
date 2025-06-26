@@ -1,151 +1,344 @@
-/* Navbar Container */
+/* Base Styles */
+:root {
+    --primary-color: #0a2e3d;
+    --secondary-color: #d4af37;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --text-gray: #666666;
+    --bg-light: #f8f8f8;
+}
+
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 50px;
-    background-color: #073246;
+    padding: 1rem 2.5rem;
+    background-color: var(--primary-color);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    height: 80px;
 }
 
-/* Logo */
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
+/* Logo Styles */
+.logo-container {
     display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.serene-logo {
+    width: 44px;
+    height: 44px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.logo img {
-    margin-right: 10px;
+.wave {
+    position: absolute;
+    bottom: 10px;
+    width: 70%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
 }
 
-/* Menu */
+.moon {
+    position: absolute;
+    top: 10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: -3px -3px 0 var(--secondary-color);
+}
+
+.logo-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.1;
+}
+
+.logo-subtext {
+    font-size: 0.7rem;
+    color: var(--secondary-color);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+/* Menu Styles */
 .menu {
     display: flex;
-    gap: 25px;
-    font-size: 18px;
+    gap: 1.75rem;
+    font-size: 1rem;
+    margin-left: 3rem;
 }
 
 .menu a {
-    color: white;
+    color: var(--text-light);
     text-decoration: none;
-    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
 }
 
 .menu a:hover {
-    color: #c9b37c;
+    color: var(--secondary-color);
 }
 
-/* Booking Button */
-.booking {
-    padding: 8px 16px;
-    background-color: transparent;
-    border: 1px solid #c9b37c;
-    color: #c9b37c;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
 }
 
-.booking:hover {
-    background-color: #c9b37c;
-    color: #073246;
+.menu a:hover::after {
+    width: 100%;
 }
 
-/* Right Side Options */
+.menu-icon {
+    opacity: 0.8;
+}
+
+/* Right Options */
 .right-options {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-right: 60px; /* Shifted login button slightly more left */
+    gap: 1.5rem;
 }
 
-/* Login Button */
-.login-button {
-    padding: 8px 16px;
-    background-color: transparent;
-    border: 1px solid #c9b37c;
-    color: #c9b37c;
+/* Booking Button */
+.booking-btn {
+    padding: 0.7rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
+}
+
+.booking-btn:hover {
+    background-color: #c9a227;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Styles */
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 0.5rem 0.75rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
 }
 
-.login-button:hover {
-    background-color: #c9b37c;
-    color: #073246;
+.profile-container:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Sidebar */
+.profile-icon {
+    color: var(--text-light);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.profile-container:hover .profile-icon {
+    transform: scale(1.05);
+}
+
+.profile-name {
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 0.9rem;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Sidebar Styles */
 .sidebar {
     position: absolute;
-    top: 70px; /* Position below profile icon */
-    right: 120px;
-    transform: translateX(10px);
-    width: 220px;
-    height: auto;
-    background-color: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    color: black;
-    transition: opacity 0.3s ease-in-out;
+    top: 80px;
+    right: 2.5rem;
+    width: 300px;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem;
     opacity: 0;
     pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
 }
 
-/* Show when active */
 .sidebar.show {
     opacity: 1;
     pointer-events: auto;
+    transform: translateY(0);
 }
 
-/* Profile Icon */
-.profile-icon {
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-avatar {
+    width: 44px;
+    height: 44px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.sidebar-username {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar-email {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
     cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.logout-btn:hover {
+    background-color: #081f29;
+    transform: translateY(-1px);
+}
+
+/* Login Button */
+.login-btn {
+    padding: 0.7rem 1.5rem;
+    background-color: transparent;
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 /* Hamburger Icon */
 .hamburger-icon {
     display: none;
     cursor: pointer;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    margin-left: 1rem;
 }
 
-/* 🌐 Responsive Design */
+.hamburger-icon:hover {
+    color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
     nav {
-        padding: 15px 30px;
+        padding: 1rem 2rem;
     }
-
+    
     .menu {
-        gap: 15px;
-        font-size: 16px;
-    }
-
-    .right-options {
-        margin-right: 20px; /* More left */
+        gap: 1.25rem;
+        margin-left: 2rem;
     }
 }
 
 @media (max-width: 768px) {
-    /* Hide menu and show hamburger */
     .menu {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
-        right: 0;
+        top: 80px;
+        left: 0;
         width: 100%;
-        background: #073246;
-        text-align: center;
-        padding: 20px 0;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        background: var(--primary-color);
+        padding: 1.5rem 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        gap: 1rem;
     }
 
     .menu.show {
@@ -153,59 +346,65 @@ nav {
     }
 
     .menu a {
-        padding: 10px;
-        display: block;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Ensure login button is visible */
-    .login-button,
-    .booking {
-        padding: 8px 16px;
-        font-size: 14px;
-        display: block;
-        white-space: nowrap;
+    .menu a:last-child {
+        border-bottom: none;
     }
 
-    /* Show hamburger icon */
+    .menu a::after {
+        display: none;
+    }
+
     .hamburger-icon {
         display: block;
-        margin-right: -10px; /* Pushing it to the right */
     }
 
-    /* Move login button and profile icon left */
-    .right-options {
-        margin-right: 30px;
-        gap: 10px;
+    .logo-text {
+        font-size: 1.4rem;
+    }
+    
+    .profile-name {
+        display: none;
+    }
+    
+    .sidebar {
+        right: 1.5rem;
+        width: calc(100% - 3rem);
     }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
     nav {
-        padding: 15px 20px;
+        padding: 1rem;
+        height: 70px;
+    }
+    
+    .logo-text {
+        font-size: 1.3rem;
     }
 
-    .logo {
-        font-size: 20px;
+    .logo-subtext {
+        font-size: 0.6rem;
+    }
+    
+    .booking-btn span {
+        display: none;
+    }
+    
+    .booking-btn::after {
+        content: 'Book';
+        display: inline;
+    }
+    
+    .login-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
     }
 
     .sidebar {
-        right: 10px;
-        width: 200px;
+        top: 70px;
     }
 }
-/* Logout Button */
-.sidebar button {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #c9b37c;
-    color: black;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.sidebar button:hover {
-    background-color: #c9b37c;
-}
-

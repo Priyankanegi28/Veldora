@@ -1,0 +1,127 @@
+/* About Page Styles */
+.about-page {
+  background: #f7f9fc;
+  min-height: 100vh;
+}
+
+.about-hero {
+  background-size: cover;
+  background-position: center;
+  min-height: 38vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.about-hero-overlay {
+  background: rgba(0,0,0,0.45);
+  width: 100%;
+  padding: 3rem 0 2rem 0;
+  text-align: center;
+  color: #fff;
+}
+.about-hero-overlay h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.about-hero-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.about-story-section {
+  padding: 2.5rem 0 1.5rem 0;
+  background: #fff;
+}
+.about-story-container {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.about-story-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  color: #3a86ff;
+}
+.about-story-container p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.about-highlights-section {
+  background: #f7f9fc;
+  padding: 2.5rem 0 2rem 0;
+}
+.about-highlights-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3a86ff;
+  margin-bottom: 2rem;
+}
+.about-highlights-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.about-highlight-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(67,97,238,0.07);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  min-width: 180px;
+  max-width: 220px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.about-highlight-card:hover {
+  box-shadow: 0 8px 32px rgba(67,97,238,0.13);
+  transform: translateY(-4px) scale(1.04);
+}
+.about-highlight-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.7rem;
+}
+.about-highlight-title {
+  font-weight: 700;
+  color: #4361ee;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+.about-highlight-desc {
+  color: #444;
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .about-highlights-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .about-hero-overlay h1 {
+    font-size: 1.5rem;
+  }
+  .about-hero-overlay p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .about-hero-overlay h1 {
+    font-size: 1.2rem;
+  }
+  .about-hero-overlay p {
+    font-size: 0.95rem;
+  }
+  .about-highlight-card {
+    min-width: 0;
+    max-width: 95vw;
+  }
+} 

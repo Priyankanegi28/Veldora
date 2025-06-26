@@ -7,7 +7,7 @@ const Footer = () => {
         <footer>
             <div className="container">
                 <div>
-                    <h3>Veldora Hotel</h3>
+                    <h3>Serene Haven</h3>
                     <p>Your luxurious escape awaits</p>
                 </div>
                 <div>

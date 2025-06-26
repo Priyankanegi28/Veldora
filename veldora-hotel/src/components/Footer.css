@@ -1,8 +1,8 @@
 /* Footer Container */
 footer {
-    background: linear-gradient(to bottom, #073246, #c9b37c);
+    background: var(--primary-color);
     padding: 40px 20px;
-    color: white;
+    color: var(--text-light);
     margin-top: auto;
 }
 
@@ -33,14 +33,14 @@ footer ul li {
 }
 
 footer ul li a {
-    color: white;
+    color: var(--text-light);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 footer ul li a:hover {
     text-decoration: underline;
-    color: #f1d28f;
+    color: var(--secondary-color);
 }
 
 /* Social Media Icons */
@@ -52,10 +52,10 @@ footer ul li a:hover {
 }
 
 .social-icons a {
-    background: #c9b37c;
+    background: var(--secondary-color);
     border-radius: 50%;
     padding: 10px;
-    color: white;
+    color: var(--primary-color);
     font-size: 20px;
     display: inline-flex;
     align-items: center;
@@ -67,7 +67,8 @@ footer ul li a:hover {
 }
 
 .social-icons a:hover {
-    background: #a89465;
+    background: var(--primary-color);
+    color: var(--secondary-color);
     transform: scale(1.1);
 }
 
@@ -79,7 +80,7 @@ footer ul li a:hover {
 footer .footer-bottom {
     margin-top: 20px;
     text-align: center;
-    border-top: 1px solid white;
+    border-top: 1px solid var(--secondary-color);
     padding-top: 10px;
 }
 
@@ -90,7 +91,7 @@ footer .footer-bottom {
 }
 
 .footer-links a {
-    color: white;
+    color: var(--text-light);
     text-decoration: none;
     margin: 0 15px;
     transition: color 0.3s;
@@ -98,7 +99,7 @@ footer .footer-bottom {
 
 .footer-links a:hover {
     text-decoration: underline;
-    color: #f1d28f;
+    color: var(--secondary-color);
 }
 
 /* Newsletter Signup */
@@ -122,8 +123,8 @@ footer .footer-bottom {
 
 .newsletter-signup button {
     padding: 10px 20px;
-    background-color: #c9b37c;
-    color: #073246;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -132,7 +133,8 @@ footer .footer-bottom {
 }
 
 .newsletter-signup button:hover {
-    background-color: #a08659;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 /* 🌐 Responsive Design */
